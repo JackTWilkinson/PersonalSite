@@ -10,6 +10,7 @@ export default function Home() {
       </Head>
 
       <main>
+        {/* TODO replace with something */}
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -17,24 +18,25 @@ export default function Home() {
         <p className={styles.description}>
           Get started by editing <code>pages/index.js</code>
         </p>
+        {/* TODO replace with something */}
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a className={styles.card}>
+            <h3>About Me</h3>
+            <p>Placeholder 1</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a className={styles.card}>
+            <h3>Work Experience</h3>
+            <p>Here is a description of my past work experience</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+          <a 
             className={styles.card}
+            href='/magic'
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h3>Magic Tool</h3>
+            <p>magic pricing tool</p>
           </a>
 
           <a
