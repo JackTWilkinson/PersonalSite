@@ -5,45 +5,43 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Jack's Personal Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        {/* TODO replace with something */}
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to Me!
         </h1>
 
         <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+          Here is some information about me!
         </p>
-        {/* TODO replace with something */}
 
         <div className={styles.grid}>
           <a className={styles.card}>
-            <h3>About Me</h3>
-            <p>Placeholder 1</p>
+            <h3>About Me &rarr;</h3>
           </a>
 
           <a className={styles.card}>
-            <h3>Work Experience</h3>
-            <p>Here is a description of my past work experience</p>
+            <h3>Work Experience &rarr;</h3>
+            <p>A brief summary of my past work experience as a Software Developer!</p>
           </a>
 
-          <a 
+          <a
             className={styles.card}
             href='/magic'
           >
-            <h3>Magic Tool</h3>
+            <h3>Magic Tool &rarr;</h3>
             <p>magic pricing tool</p>
           </a>
 
           <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://github.com/JackTWilkinson"
+            target="_blank"
             className={styles.card}
           >
-            <h3>Deploy &rarr;</h3>
+            <h3>GitHub &rarr;</h3>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
@@ -52,16 +50,9 @@ export default function Home() {
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
+        Created By Jack Wilkinson
       </footer>
-
+{/* TODO move to an external file */}
       <style jsx>{`
         main {
           padding: 5rem 0;
