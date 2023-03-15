@@ -7,6 +7,7 @@ export default function Magic() {
     const [cardPrice, setCardPrice] = useState();
     const [searchTerm, setSearchTerm] = useState();
     const [cardImage, setCardImage] = useState('/magic_back.jpg');
+    const [searchCompleted, setSearchCompleted] = useState(false);
     const delayInMilliseconds = 60;
 
     const submitSearch = async (event) => {
@@ -25,7 +26,9 @@ export default function Magic() {
                 setCardName(data.name);
                 setCardImage(data.image_uris.normal);
                 setCardPrice(data.prices.usd != null ? data.prices.usd : 'Couldn\'t retrieve a price');
+                console.log('Here is the prices: ');
                 console.log(JSON.stringify(data.prices));
+                setSearchCompleted(true);
             });
         } catch (err) {
             console.log(err);
@@ -46,16 +49,24 @@ export default function Magic() {
               <label>Card Name: </label>
               <input required type="text" id="cName" name="cName" onChange={e => setSearchTerm(e.target.value)} />
               <button type="submit">Submit</button>
-            </form>
-            <p>Here is the price I found:</p>
-            <p>{cardPrice}</p>
-            <p>Here is the card name I found:</p>
-            <p>{cardName}</p>
-            <p>Here is the art of the card I found:</p>
+              {/* TODO add additional filtering */}
+              {/* TODO add data storage of some way to add collection functionality */}
+              {/* <button type="">Clear</button> TODO add clearing */}
+            </form><br/>
             <img
                 src={cardImage}
                 alt="Card Art"
             />
+            {
+                searchCompleted &&
+                <div>
+                    <p>Here is the price I found:</p>
+                    <p>{cardPrice}</p>
+                    <p>Here is the card name I found:</p>
+                    <p>{cardName}</p>
+                    <p>Here is the art of the card I found:</p>
+                </div>
+            }
         </div>
     );
 }
