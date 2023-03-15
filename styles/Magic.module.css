@@ -1,3 +1,8 @@
 .magicSearchPage {
     background-color: rgb(32, 32, 22);
 }
+
+.title a {
+    color: #0070f3;
+    text-decoration: none;
+  }

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {React, useState} from 'react';
-import '../styles/Magic.module.css'
+import styles from '../styles/Magic.module.css'
 
 export default function Magic() {
     const [cardName, setCardName] = useState();
@@ -33,7 +33,7 @@ export default function Magic() {
     }
 
     return (
-        <div className='magicSearchPage'>
+        <div className={styles.container}>
             <section>
                 <ul>
                     <li>
