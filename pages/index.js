@@ -15,15 +15,21 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Here is some information about me!
+          Welcome to my website portfolio and repository for small projects!
         </p>
 
         <div className={styles.grid}>
-          <a className={styles.card}>
+          <a
+            className={styles.card}
+            href='/about'
+          >
             <h3>About Me &rarr;</h3>
           </a>
 
-          <a className={styles.card}>
+          <a
+            className={styles.card}
+            href='/work_experience'
+          >
             <h3>Work Experience &rarr;</h3>
             <p>A brief summary of my past work experience as a Software Developer!</p>
           </a>
@@ -43,7 +49,7 @@ export default function Home() {
           >
             <h3>GitHub &rarr;</h3>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Here is my GitHub along with some additional projects/old code that I've written over the years.
             </p>
           </a>
         </div>

@@ -24,7 +24,6 @@ export default function Magic() {
                 console.log(data);
                 setCardName(data.name);
                 setCardImage(data.image_uris.normal);
-                console.log(cardImage);
                 setCardPrice(data.prices.usd != null ? data.prices.usd : 'Couldn\'t retrieve a price');
                 console.log(JSON.stringify(data.prices));
             });
