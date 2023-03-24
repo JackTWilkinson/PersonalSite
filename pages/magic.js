@@ -32,6 +32,7 @@ export default function Magic() {
 
     return (
         <div className={styles.container}>
+            <Script type="module" strategy='beforeInteractive' src="/sql-loader.js"/>
             <section>
                 <ul>
                     <li>
