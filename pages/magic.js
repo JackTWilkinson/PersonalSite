@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Script from 'next/Script';
 import {React, useState} from 'react';
-import {useBinaryFile} from '../lib/useBinaryFile.tsx'
 import CardDetail from '../components/card-details';
 import styles from '../styles/Magic.module.css'
 
@@ -33,11 +32,6 @@ export default function Magic() {
     }
 
 
-    // const data = useBinaryFile('magicCollection');
-    // const db = useDB(data);
-    // const [query, setQuery] = useState( "SELECT name FROM  sqlite_schema WHERE type ='table' AND name NOT LIKE 'sqlite_%';" )
-    // const results = useDBQuery( db, data, query )
-  
     return (
         <div className={styles.container}>
             <Script type="module" strategy='beforeInteractive' src="/sql-loader.js"/>
@@ -68,19 +62,6 @@ export default function Magic() {
                     </div>
                 </>
             }
-            <table className="w-full">
-                <thead>
-                    <tr>
-                        {results[0].columns.map( (c) => <th key={c}>{c}</th>)}
-                    </tr>
-                </thead>
-                <tbody>
-                    {results[0].values.map( (r) => <tr key={r}>
-                        {r.map( (v) => <td key={v}>{v}</td> )}
-                    </tr>)}
-                </tbody>
-            </table>
-            <p>You have {results.size} rows</p>
         </div>
     );
 }
