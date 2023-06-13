@@ -12,6 +12,7 @@ datasource db {
 
 model CardEntry {
   id String @id @default(cuid())
+  cardName String
   price Float
   owner String
   copies Int

@@ -1,10 +1,58 @@
 import Link from 'next/link';
 import Script from 'next/Script';
+import { PrismaClient } from '@prisma/client';
 import {React, useState} from 'react';
 import CardDetail from '../components/card-details';
-import styles from '../styles/Magic.module.css'
+import styles from '../styles/Magic.module.css';
+import AddScreen from '../components/AddScreen';
+import DisplayScreen from '../components/DisplayScreen';
 
-export default function Magic() {
+const prisma = new PrismaClient();
+
+export const getServerSideProps = async () => {
+    const cards = await prisma.cardEntry.findMany()
+    return {
+      props: {
+        initialCards: cards
+      }
+    }
+  }
+
+  const delCard = async (card) => {
+    if (window.confirm("Do you want to delete this card?")) {
+        await fetch('/api/deleteCard', {
+          method: 'POST',
+          body: JSON.stringify({
+            id: card.id
+          }),
+          headers: {
+            'Content-Type': 'application/json; charset=utf8'
+          }
+        })
+        console.log("response", card)
+      }
+  }
+
+  const saveCard = async (card) => {
+    const response = await fetch('/api/cards', {
+      method: 'POST',
+      body: JSON.stringify(card),
+      headers: {
+        'Content-Type': 'application/json; charset=utf8'
+      }
+    })
+  
+    console.log("response", card)
+  
+    if (!response.ok) {
+      throw new Error(response.statusText)
+    }
+  
+    return await response.json()
+  }
+
+export default function Magic({ initialCards }) {
+    const [cards, setCards] = useState(initialCards);
     const [searchTerm, setSearchTerm] = useState();
     const [cardImage, setCardImage] = useState('/magic_back.jpg');
     const [searchCompleted, setSearchCompleted] = useState(false);
@@ -62,6 +110,19 @@ export default function Magic() {
                     </div>
                 </>
             }
+
+            <div class="grid md:grid-cols-3">
+            <AddScreen cards = { initialCards } AddCardFormProps = {async (data, e) => {
+                try {
+                  await saveContact(data)
+                  setCards([...cards, data])
+                  e.target.reset()
+                } catch (error) {
+                  console.log(error);
+                }
+            }} />
+            <DisplayScreen cards = { initialCards } delContact = { delCard } />
+            </div>
         </div>
     );
 }
